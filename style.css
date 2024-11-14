@@ -1,0 +1,18 @@
+:root {
+  --text: #1b150e;
+  --background: #f6f0ea;
+  --primary: #5b4224;
+  --secondary: #d6b085;
+  --accent: #bb7c35;
+}
+:root[data-theme='dark'] {
+  --text: #f1ebe4;
+  --background: #150f09;
+  --primary: #dbc2a4;
+  --secondary: #7a5429;
+  --accent: #ca8c44;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+}
