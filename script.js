@@ -3,7 +3,6 @@ const titleNote = document.querySelector('#titleNote');
 const descriptionNote = document.querySelector('#descriptionNote');
 const statusText = document.querySelector('#statusText');
 
-let noteID = 0;
 let notesArray = [];
 
 console.log(notesArray);
@@ -27,7 +26,7 @@ noteForm.addEventListener('submit', (event) => {
 
 function saveNote(title, description) {
   const newNote = {
-    id: noteID++,
+    id: Date.now(),
     title: title,
     content: description,
     timestamp: new Date().toLocaleString(),
@@ -36,7 +35,7 @@ function saveNote(title, description) {
   notesArray.push(newNote);
   console.log(notesArray);
 
-  saveLocalStorage(newNote.title, newNote);
+  saveLocalStorage(newNote.id, newNote);
 }
 
 function saveLocalStorage(key, value) {
