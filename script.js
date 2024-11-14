@@ -1,3 +1,4 @@
+const toggleButton = document.querySelector('#darkmode');
 const noteForm = document.querySelector('#noteForm');
 const titleNote = document.querySelector('#titleNote');
 const descriptionNote = document.querySelector('#descriptionNote');
@@ -7,6 +8,17 @@ const notesHistory = document.querySelector('.notesHistory');
 let notesArray = [];
 
 console.log(notesArray);
+
+// dark/light mode
+toggleButton.addEventListener('click', () => {
+  document.body.classList.toggle('dark-theme');
+
+  if (document.body.classList.contains('dark-theme')) {
+    toggleButton.src = 'images/lightmode.png';
+  } else {
+    toggleButton.src = 'images/darkmode.png';
+  }
+});
 
 // When site load, get all notes and render them
 document.addEventListener('DOMContentLoaded', () => {
