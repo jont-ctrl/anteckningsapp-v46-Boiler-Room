@@ -66,3 +66,19 @@ button:active {
   border-radius: 2rem;
   padding: 2rem;
 }
+
+.itemTitle {
+  font-size: 2rem;
+}
+
+.itemContent {
+  font-size: 1.25rem;
+}
+
+.itemDate {
+  color: hsl(0, 0%, 50%);
+}
+
+.itemID {
+  color: hsl(0, 0%, 50%);
+}

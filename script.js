@@ -8,6 +8,11 @@ let notesArray = [];
 
 console.log(notesArray);
 
+// When site load, get all notes and render them
+document.addEventListener('DOMContentLoaded', () => {
+  renderNotes();
+});
+
 noteForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
@@ -38,6 +43,8 @@ function saveNote(title, description) {
 
   // Save 'notes' for key and whole notesarray as value
   saveLocalStorage('notes', notesArray);
+
+  renderNotes();
 }
 
 function saveLocalStorage(key, value) {
@@ -49,15 +56,32 @@ function loadNotesLocalStorage() {
   const savedNotes = localStorage.getItem('notes');
 
   notesArray = JSON.parse(savedNotes);
-
-  renderNotes();
 }
 
 function renderNotes() {
   notesArray.forEach((element) => {
+    //if (element.id)
+    const newNoteDive = document.createElement('div');
+    newNoteDive.classList.add('noteHistoryItem');
+
     const NewNoteTitle = document.createElement('h3');
+    NewNoteTitle.classList.add('itemTitle');
     NewNoteTitle.textContent = element.title;
-    notesHistory.append(NewNoteTitle);
+
+    const NewNoteContent = document.createElement('p');
+    NewNoteContent.classList.add('itemContent');
+    NewNoteContent.textContent = element.content;
+
+    const NewNoteDate = document.createElement('p');
+    NewNoteDate.classList.add('itemDate');
+    NewNoteDate.textContent = element.timestamp;
+
+    const NewNoteID = document.createElement('p');
+    NewNoteID.classList.add('itemID');
+    NewNoteID.textContent = element.id;
+
+    notesHistory.append(newNoteDive);
+    newNoteDive.append(NewNoteTitle, NewNoteContent, NewNoteDate, NewNoteID);
     console.log(element.id);
   });
   /*   console.log(notesArray + ' bruh');
