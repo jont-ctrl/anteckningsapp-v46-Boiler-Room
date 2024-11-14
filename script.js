@@ -2,6 +2,7 @@ const noteForm = document.querySelector('#noteForm');
 const titleNote = document.querySelector('#titleNote');
 const descriptionNote = document.querySelector('#descriptionNote');
 const statusText = document.querySelector('#statusText');
+const notesHistory = document.querySelector('.notesHistory');
 
 let notesArray = [];
 
@@ -35,11 +36,32 @@ function saveNote(title, description) {
   notesArray.push(newNote);
   console.log(notesArray);
 
-  saveLocalStorage(newNote.id, newNote);
+  // Save 'notes' for key and whole notesarray as value
+  saveLocalStorage('notes', notesArray);
 }
 
 function saveLocalStorage(key, value) {
   localStorage.setItem(key, JSON.stringify(value));
+  loadNotesLocalStorage();
+}
+
+function loadNotesLocalStorage() {
+  const savedNotes = localStorage.getItem('notes');
+
+  notesArray = JSON.parse(savedNotes);
+
+  renderNotes();
+}
+
+function renderNotes() {
+  notesArray.forEach((element) => {
+    const NewNoteTitle = document.createElement('h3');
+    NewNoteTitle.textContent = element.title;
+    notesHistory.append(NewNoteTitle);
+    console.log(element.id);
+  });
+  /*   console.log(notesArray + ' bruh');
+  console.table(notesArray); */
 }
 
 /* //.toLocaleString konverterar datumobjektet till en sträng i det lokala formatet
