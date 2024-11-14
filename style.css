@@ -25,7 +25,6 @@ body {
 
 form {
   display: flex;
-
   flex-direction: column;
 }
 
@@ -35,4 +34,22 @@ textarea {
   border: 1px solid;
   padding: 1rem 2rem;
   border-radius: 2rem;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+  background-color: var(--primary);
+  color: var(--background);
+  transition: transform 0.2s;
+}
+
+button:hover {
+  transform: scale(1.03);
+}
+
+button:active {
+  transform: scale(0.97);
 }
