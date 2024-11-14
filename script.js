@@ -40,7 +40,7 @@ function saveNote(title, description) {
 }
 
 function saveLocalStorage(key, value) {
-  localStorage.setItem(JSON.stringify(key), JSON.stringify(value));
+  localStorage.setItem(key, JSON.stringify(value));
 }
 
 /* //.toLocaleString konverterar datumobjektet till en sträng i det lokala formatet
