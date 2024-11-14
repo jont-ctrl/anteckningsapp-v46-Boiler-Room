@@ -12,9 +12,9 @@
     />
   </head>
   <body>
-    <h1>Notetaking app</h1>
+    <h1>Note taking app</h1>
     <main>
-      <form action="">
+      <form action="" id="noteForm">
         <input
           type="text"
           name="titleNote"
@@ -25,12 +25,13 @@
         <textarea
           name="descriptionNote"
           id="descriptionNote"
-          placeholder="Add description"
+          placeholder="Write your note here..."
           required
           rows="15"
           cols="50"
         ></textarea>
-        <button type="submit">Save</button>
+        <button type="submit">Add Note</button>
+        <h3 id="statusText"></h3>
       </form>
     </main>
     <script src="script.js"></script>
