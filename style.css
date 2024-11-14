@@ -38,6 +38,7 @@ textarea {
 }
 
 button {
+  font-size: 1.25rem;
   cursor: pointer;
   border: none;
   padding: 1rem 2rem;
