@@ -29,6 +29,14 @@ body {
   width: 32px;
   cursor: pointer;
 }
+/* Lägg till så darkmode val sparas i localstorage */
+#darkmode:hover {
+  transform: scale(1.1);
+}
+
+#darkmode:active {
+  transform: scale(0.9);
+}
 
 form {
   display: flex;
