@@ -19,11 +19,18 @@ body {
   color: var(--text);
   display: flex;
   flex-direction: column;
+  /* Remove this justify content center on body later */
   justify-content: center;
   align-items: center;
   text-align: center;
   transition: background 0.3s ease-in-out;
 }
+
+/* header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+} */
 
 #darkmode {
   width: 32px;
@@ -84,10 +91,12 @@ button:active {
 
 .itemTitle {
   font-size: 2rem;
+  color: #1b150e;
 }
 
 .itemContent {
   font-size: 1.25rem;
+  color: #1b150e;
 }
 
 .itemDate {
@@ -96,4 +105,5 @@ button:active {
 
 .itemID {
   color: hsl(0, 0%, 50%);
+  font-size: 0.75rem;
 }
