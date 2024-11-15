@@ -127,7 +127,7 @@ function renderNotes() {
     // Add google icons
     const icon2 = document.createElement('i');
     icon2.classList.add('material-icons');
-    icon2.textContent = 'delete_forever';
+    icon2.textContent = 'delete';
     // Prepend inserts element first child
     newDeleteBtn.prepend(icon2);
 
