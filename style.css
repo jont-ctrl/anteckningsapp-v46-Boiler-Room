@@ -17,25 +17,31 @@ body {
   font-family: 'Inter', sans-serif;
   background: var(--background);
   color: var(--text);
-  display: flex;
-  flex-direction: column;
   /* Remove this justify content center on body later */
+  /*   display: flex;
+  flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
   text-align: center;
   transition: background 0.3s ease-in-out;
+  padding: 2rem;
 }
 
-/* header {
+header {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-} */
+  align-items: center;
+  margin-bottom: 1rem;
+}
 
 #darkmode {
-  width: 32px;
+  height: 2.5rem;
+  width: 2.5rem;
+
   cursor: pointer;
 }
+
 /* Lägg till så darkmode val sparas i localstorage */
 #darkmode:hover {
   transform: scale(1.1);
@@ -67,6 +73,17 @@ button {
   background-color: var(--primary);
   color: var(--background);
   transition: transform 0.2s;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 button:hover {
@@ -80,15 +97,18 @@ button:active {
 .notesHistory {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: center;
-  justify-items: center;
   gap: 1rem;
-
   border-radius: 2rem;
   margin-top: 2rem;
 }
 
 .noteHistoryItem {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  flex-direction: column;
+
   background-color: white;
   padding: 3rem;
   border-radius: 2rem;
