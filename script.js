@@ -66,7 +66,6 @@ function saveLocalStorage(key, value) {
 
 function loadNotesLocalStorage() {
   const savedNotes = localStorage.getItem('notes');
-
   notesArray = JSON.parse(savedNotes);
 }
 
@@ -100,7 +99,7 @@ function renderNotes() {
     newDeleteBtn.textContent = 'Remove';
 
     newDeleteBtn.addEventListener('click', () => {
-      console.log('delete');
+      deleteNote(element.id);
     });
 
     notesHistory.append(newNoteDive);
@@ -111,9 +110,15 @@ function renderNotes() {
       NewNoteID,
       newDeleteBtn
     );
-    console.log(element.id);
   });
 }
 
-/* //.toLocaleString konverterar datumobjektet till en sträng i det lokala formatet
-console.log(new Date().toLocaleString()); */
+function deleteNote(id) {
+  console.log('remove id: ' + id);
+  // Filter out id and remove from array
+  notesArray = notesArray.filter((note) => note.id !== id);
+
+  saveLocalStorage('notes', notesArray);
+
+  renderNotes();
+}
