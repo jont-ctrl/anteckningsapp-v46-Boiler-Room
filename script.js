@@ -72,7 +72,7 @@ function renderNotes() {
   notesHistory.innerHTML = '';
 
   if (notesArray.length === 0) {
-    statusText.textContent = 'No notes available. Pls add some notes';
+    statusText.textContent = 'No notes available. Please add some notes';
     if (document.querySelector('.deleteAllBtn')) {
       console.log('yoooooo');
 
@@ -154,5 +154,4 @@ function deleteAllNotes() {
 document.addEventListener('DOMContentLoaded', () => {
   loadNotesLocalStorage();
   renderNotes();
-  statusText.textContent = 'hello';
 });
