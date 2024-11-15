@@ -99,6 +99,10 @@ function renderNotes() {
     newDeleteBtn.classList.add('itemDelete');
     newDeleteBtn.textContent = 'Remove';
 
+    newDeleteBtn.addEventListener('click', () => {
+      console.log('delete');
+    });
+
     notesHistory.append(newNoteDive);
     newNoteDive.append(
       NewNoteTitle,
@@ -109,8 +113,6 @@ function renderNotes() {
     );
     console.log(element.id);
   });
-  /*   console.log(notesArray + ' bruh');
-  console.table(notesArray); */
 }
 
 /* //.toLocaleString konverterar datumobjektet till en sträng i det lokala formatet

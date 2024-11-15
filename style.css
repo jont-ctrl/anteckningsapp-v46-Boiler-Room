@@ -79,7 +79,7 @@ button:active {
 
 .notesHistory {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
   justify-items: center;
   gap: 1rem;
@@ -101,6 +101,7 @@ button:active {
 .itemContent {
   font-size: 1.25rem;
   color: #1b150e;
+  text-align: left;
 }
 
 .itemDate {
