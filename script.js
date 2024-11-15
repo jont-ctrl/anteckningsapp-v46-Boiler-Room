@@ -55,17 +55,6 @@ function saveNote(title, description) {
   saveLocalStorage('notes', notesArray);
 
   renderNotes();
-
-  //Delete all button
-  if (!document.querySelector('.deleteAllBtn')) {
-    const deleteAllBtn = document.createElement('button');
-    deleteAllBtn.classList.add('deleteAllBtn');
-    deleteAllBtn.textContent = 'Delete All';
-    deleteAllBtn.addEventListener('click', () => {
-      deleteAllNotes();
-    });
-    main.append(deleteAllBtn);
-  }
 }
 
 function saveLocalStorage(key, value) {
@@ -84,7 +73,23 @@ function renderNotes() {
 
   if (notesArray.length === 0) {
     statusText.textContent = 'No notes available. Pls add some notes';
+    if (document.querySelector('.deleteAllBtn')) {
+      console.log('yoooooo');
+
+      document.querySelector('.deleteAllBtn').remove();
+    }
     return;
+  }
+
+  //Delete all button
+  if (!document.querySelector('.deleteAllBtn')) {
+    const deleteAllBtn = document.createElement('button');
+    deleteAllBtn.classList.add('deleteAllBtn');
+    deleteAllBtn.textContent = 'Delete All';
+    deleteAllBtn.addEventListener('click', () => {
+      deleteAllNotes();
+    });
+    main.append(deleteAllBtn);
   }
 
   notesArray.forEach((element) => {
