@@ -86,6 +86,13 @@ function renderNotes() {
     const deleteAllBtn = document.createElement('button');
     deleteAllBtn.classList.add('deleteAllBtn');
     deleteAllBtn.textContent = 'Delete All';
+    // Add google icons
+    const icon = document.createElement('i');
+    icon.classList.add('material-icons');
+    icon.textContent = 'delete_forever';
+    // Prepend inserts element first child
+    deleteAllBtn.prepend(icon);
+
     deleteAllBtn.addEventListener('click', () => {
       deleteAllNotes();
     });
@@ -116,6 +123,13 @@ function renderNotes() {
     const newDeleteBtn = document.createElement('button');
     newDeleteBtn.classList.add('itemDelete');
     newDeleteBtn.textContent = 'Remove';
+
+    // Add google icons
+    const icon2 = document.createElement('i');
+    icon2.classList.add('material-icons');
+    icon2.textContent = 'delete_forever';
+    // Prepend inserts element first child
+    newDeleteBtn.prepend(icon2);
 
     newDeleteBtn.addEventListener('click', () => {
       deleteNote(element.id);
