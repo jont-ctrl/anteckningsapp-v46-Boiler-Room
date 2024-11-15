@@ -21,11 +21,6 @@ toggleButton.addEventListener('click', () => {
   }
 });
 
-// When site load, get all notes and render them
-document.addEventListener('DOMContentLoaded', () => {
-  renderNotes();
-});
-
 noteForm.addEventListener('submit', (event) => {
   event.preventDefault();
 
@@ -42,6 +37,8 @@ noteForm.addEventListener('submit', (event) => {
     descriptionNote.value = '';
   }
 });
+
+// Functions
 
 function saveNote(title, description) {
   const newNote = {
@@ -78,7 +75,7 @@ function saveLocalStorage(key, value) {
 
 function loadNotesLocalStorage() {
   const savedNotes = localStorage.getItem('notes');
-  notesArray = JSON.parse(savedNotes);
+  notesArray = savedNotes ? JSON.parse(savedNotes) : [];
 }
 
 function renderNotes() {
@@ -147,3 +144,10 @@ function deleteAllNotes() {
 
   renderNotes();
 }
+
+// When site load, get all notes and render them
+document.addEventListener('DOMContentLoaded', () => {
+  loadNotesLocalStorage();
+  renderNotes();
+  statusText.textContent = 'hello';
+});
