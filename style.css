@@ -122,7 +122,7 @@ button:active {
 .itemContent {
   font-size: 1.25rem;
   color: #1b150e;
-  text-align: left;
+  /*   text-align: left; */
 }
 
 .itemDate {
