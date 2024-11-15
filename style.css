@@ -82,11 +82,15 @@ button:active {
   grid-template-columns: 1fr 1fr 1fr;
   align-items: center;
   justify-items: center;
-  gap: 3rem;
-  background-color: white;
+  gap: 1rem;
 
   border-radius: 2rem;
-  padding: 2rem;
+}
+
+.noteHistoryItem {
+  background-color: white;
+  padding: 3rem;
+  border-radius: 2rem;
 }
 
 .itemTitle {
