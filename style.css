@@ -107,3 +107,8 @@ button:active {
   color: hsl(0, 0%, 50%);
   font-size: 0.75rem;
 }
+
+.itemDelete {
+  background-color: var(--secondary);
+  color: var(--text);
+}

@@ -92,8 +92,18 @@ function renderNotes() {
     NewNoteID.classList.add('itemID');
     NewNoteID.textContent = element.id;
 
+    const newDeleteBtn = document.createElement('button');
+    newDeleteBtn.classList.add('itemDelete');
+    newDeleteBtn.textContent = 'Remove';
+
     notesHistory.append(newNoteDive);
-    newNoteDive.append(NewNoteTitle, NewNoteContent, NewNoteDate, NewNoteID);
+    newNoteDive.append(
+      NewNoteTitle,
+      NewNoteContent,
+      NewNoteDate,
+      NewNoteID,
+      newDeleteBtn
+    );
     console.log(element.id);
   });
   /*   console.log(notesArray + ' bruh');
