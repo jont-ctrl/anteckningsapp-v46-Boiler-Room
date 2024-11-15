@@ -5,9 +5,10 @@ const descriptionNote = document.querySelector('#descriptionNote');
 const statusText = document.querySelector('#statusText');
 const notesHistory = document.querySelector('.notesHistory');
 
-let notesArray = [];
+const main = document.querySelector('main');
 
-console.log(notesArray);
+let notesArray = [];
+console.log(notesArray + ' first');
 
 // dark/light mode
 toggleButton.addEventListener('click', () => {
@@ -57,6 +58,17 @@ function saveNote(title, description) {
   saveLocalStorage('notes', notesArray);
 
   renderNotes();
+
+  //Delete all button
+  if (!document.querySelector('.deleteAllBtn')) {
+    const deleteAllBtn = document.createElement('button');
+    deleteAllBtn.classList.add('deleteAllBtn');
+    deleteAllBtn.textContent = 'Delete All';
+    deleteAllBtn.addEventListener('click', () => {
+      deleteAllNotes();
+    });
+    main.append(deleteAllBtn);
+  }
 }
 
 function saveLocalStorage(key, value) {
@@ -72,6 +84,11 @@ function loadNotesLocalStorage() {
 function renderNotes() {
   // Resets notesHistory before rendering all items
   notesHistory.innerHTML = '';
+
+  if (notesArray.length === 0) {
+    statusText.textContent = 'No notes available. Pls add some notes';
+    return;
+  }
 
   notesArray.forEach((element) => {
     //if (element.id)
@@ -117,6 +134,14 @@ function deleteNote(id) {
   console.log('remove id: ' + id);
   // Filter out id and remove from array
   notesArray = notesArray.filter((note) => note.id !== id);
+
+  saveLocalStorage('notes', notesArray);
+
+  renderNotes();
+}
+
+function deleteAllNotes() {
+  notesArray = [];
 
   saveLocalStorage('notes', notesArray);
 

@@ -85,6 +85,7 @@ button:active {
   gap: 1rem;
 
   border-radius: 2rem;
+  margin-top: 2rem;
 }
 
 .noteHistoryItem {
@@ -116,4 +117,11 @@ button:active {
 .itemDelete {
   background-color: var(--secondary);
   color: var(--text);
+}
+
+.deleteAllBtn {
+  margin-top: -1rem;
+
+  background-color: var(--accent);
+  padding: 1rem 2rem 1rem 2rem;
 }
