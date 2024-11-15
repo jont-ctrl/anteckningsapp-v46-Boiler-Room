@@ -71,6 +71,9 @@ function loadNotesLocalStorage() {
 }
 
 function renderNotes() {
+  // Resets notesHistory before rendering all items
+  notesHistory.innerHTML = '';
+
   notesArray.forEach((element) => {
     //if (element.id)
     const newNoteDive = document.createElement('div');
