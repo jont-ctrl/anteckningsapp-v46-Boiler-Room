@@ -4,6 +4,7 @@ const titleNote = document.querySelector('#titleNote');
 const descriptionNote = document.querySelector('#descriptionNote');
 const statusText = document.querySelector('#statusText');
 const notesHistory = document.querySelector('.notesHistory');
+const searchInput = document.querySelector('#searchInput');
 
 const main = document.querySelector('main');
 
@@ -38,6 +39,10 @@ noteForm.addEventListener('submit', (event) => {
   }
 });
 
+searchInput.addEventListener('input', () => {
+  renderNotes(searchInput.value);
+});
+
 // Functions
 
 function saveNote(title, description) {
@@ -67,30 +72,44 @@ function loadNotesLocalStorage() {
   notesArray = savedNotes ? JSON.parse(savedNotes) : [];
 }
 
-function renderNotes() {
-  // Resets notesHistory before rendering all items
+function renderNotes(searchText = '') {
+  // Rensa notesHistory innan rendering
   notesHistory.innerHTML = '';
 
   if (notesArray.length === 0) {
-    statusText.textContent = 'No notes available. Please add some notes';
+    statusText.textContent =
+      'Inga anteckningar tillgängliga. Var god lägg till några anteckningar.';
     if (document.querySelector('.deleteAllBtn')) {
-      console.log('yoooooo');
-
       document.querySelector('.deleteAllBtn').remove();
     }
     return;
   }
 
-  //Delete all button
+  // Filtrera anteckningar baserat på söktext
+  const filteredNotes = notesArray.filter((note) => {
+    return (
+      note.title.toLowerCase().includes(searchText.toLowerCase()) ||
+      note.content.toLowerCase().includes(searchText.toLowerCase())
+    );
+  });
+
+  // Kontrollera om några anteckningar matchar sökningen
+  if (filteredNotes.length === 0) {
+    statusText.textContent = 'Inga anteckningar matchar din sökning.';
+    return;
+  } else {
+    statusText.textContent = '';
+  }
+
+  // Om deleteAllBtn inte redan finns, lägg till den
   if (!document.querySelector('.deleteAllBtn')) {
     const deleteAllBtn = document.createElement('button');
     deleteAllBtn.classList.add('deleteAllBtn');
     deleteAllBtn.textContent = 'Delete All';
-    // Add google icons
+    // Lägg till ikon
     const icon = document.createElement('i');
     icon.classList.add('material-icons');
     icon.textContent = 'delete_forever';
-    // Prepend inserts element first child
     deleteAllBtn.prepend(icon);
 
     deleteAllBtn.addEventListener('click', () => {
@@ -99,8 +118,8 @@ function renderNotes() {
     main.append(deleteAllBtn);
   }
 
-  notesArray.forEach((element) => {
-    //if (element.id)
+  // Rendera varje anteckning i filteredNotes
+  filteredNotes.forEach((element) => {
     const newNoteDive = document.createElement('div');
     newNoteDive.classList.add('noteHistoryItem');
 
@@ -124,17 +143,17 @@ function renderNotes() {
     newDeleteBtn.classList.add('itemDelete');
     newDeleteBtn.textContent = 'Remove';
 
-    // Add google icons
+    // Lägg till ikon
     const icon2 = document.createElement('i');
     icon2.classList.add('material-icons');
     icon2.textContent = 'delete';
-    // Prepend inserts element first child
     newDeleteBtn.prepend(icon2);
 
     newDeleteBtn.addEventListener('click', () => {
       deleteNote(element.id);
     });
 
+    // Lägg till anteckningen i notesHistory
     notesHistory.append(newNoteDive);
     newNoteDive.append(
       NewNoteTitle,
