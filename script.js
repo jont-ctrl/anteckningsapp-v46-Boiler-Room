@@ -9,7 +9,6 @@ const searchInput = document.querySelector('#searchInput');
 const main = document.querySelector('main');
 
 let notesArray = [];
-console.log(notesArray + ' first');
 
 // dark/light mode
 toggleButton.addEventListener('click', () => {
@@ -54,7 +53,6 @@ function saveNote(title, description) {
   };
 
   notesArray.push(newNote);
-  console.log(notesArray);
 
   // Save 'notes' for key and whole notesarray as value
   saveLocalStorage('notes', notesArray);
